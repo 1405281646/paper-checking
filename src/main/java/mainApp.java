@@ -22,11 +22,12 @@ public class mainApp {
 
         String sourceSimHash = SimHashUtils.getSimHash(sourceTxt);
         String compareTxtSimHash = SimHashUtils.getSimHash(compareTxt);
-        // 由 simHash值求出相似度
+        // 由 simHash值求出海明距离相似度
+        int HammingDistance = HammingUtils.getHammingDistance(sourceSimHash, compareTxtSimHash);
         double similarity = HammingUtils.getSimilarity(sourceSimHash, compareTxtSimHash);
         // 把相似度写入最后的结果文件中
         String s = "sourceTxtPath:" + sourceTxtPath + "\ncompareTxtPath:" + compareTxtPath + "\nresultTxtPath:" + resultTxtPath
-                + "\nsimilarity:" + similarity;
+                + "\nHammingDistance:" + HammingDistance + "\nsimilarity:" + similarity;
         TxtUtils.WriteTxt(s, resultTxtPath);
         // 退出程序
 

@@ -16,7 +16,12 @@ public class SimHashUtils {
      */
     public static String getSimHash(String str) {
         // 文本长度太短时HanLp无法取得关键字
-        if (str.length() < 200) return "文本长度太短";
+        try {
+            if (str.length() < 200) throw new ShortStringException("文本过短！");
+        } catch (ShortStringException e) {
+            e.printStackTrace();
+            return null;
+        }
         // 用数组表示特征向量,取128位,从 0 1 2 位开始表示从高位到低位
         int[] v = new int[128];
         // 1、分词（使用了外部依赖hankcs包提供的接口）
