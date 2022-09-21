@@ -9,7 +9,7 @@ public class TxtUtilsTest {
     @Test
     public void readTxtTest() {
         // 路径存在，正常读取
-        String str = TxtUtils.readTxt("D:/test/orig.txt");
+        String str = TxtUtils.readTxt("src/test/java/Txt/orig.txt");
         String[] strings = str.split(" ");
         for (String string : strings) {
             System.out.println(string);
@@ -17,25 +17,27 @@ public class TxtUtilsTest {
     }
 
     @Test
-    public void writeTxtTest() throws IOException {
+    public void writeTxtTest() {
         // 路径存在，正常写入
-        double[] elem = {0.11, 0.22, 0.33, 0.44, 0.55};
-        for (double v : elem) {
-            TxtUtils.WriteTxt(String.valueOf(v), "D:/test/ans.txt");
+        String s = "efygjavfbyjshvsrc/test/java/Txt/Ans/Ans_write_txt_Test";
+        try {
+            TxtUtils.WriteTxt(s, "src/test/java/Ans/TestWriteTxtAns.txt");
+        } catch (IOException e) {
+            throw new RuntimeException(e);
         }
     }
 
     @Test
     public void readTxtFailTest() {
         // 路径不存在，读取失败
-        String str = TxtUtils.readTxt("D:/test/none.txt");
+        String str = TxtUtils.readTxt("src/test/java/Txt/none.txt");
     }
 
     @Test
     public void writeTxtFailTest() throws IOException {
-        // 路径错误，写入失败
+        // 路径错误，会在错误的地方生成文件
         String s = "2e3yfchiusv";
-        TxtUtils.WriteTxt(s, "D:/test/ans.txt");
+        TxtUtils.WriteTxt(s, "src/test/java/Ans/ans.txt");
     }
 
 }

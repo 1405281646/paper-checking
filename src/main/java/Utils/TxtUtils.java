@@ -17,8 +17,8 @@ public class TxtUtils {
             String s;
 
             while ((s = bf.readLine()) != null) {//使用readLine方法，一次读一行
-                buffer.append(s);
-//                buffer.append(s.trim().replaceAll("[\\pP\\p{Punct}]", ""));
+//                buffer.append(s);
+                buffer.append(s.trim().replaceAll("[\\pP\\p{Punct}]", ""));
                 //            s.trim()去掉了字符串里面的空格
                 //            s.trim().replaceAll("[\\pP\\p{Punct}]", ""}去掉所有的标点符号
                 //            buffer.append(s);
@@ -53,17 +53,7 @@ public class TxtUtils {
         System.out.println("写入成功");
     }
 
-    /**
-     * 去除字符串中的符号
-     *
-     * @param string 字符串
-     * @return String 去掉标点符号的字符串
-     */
-    public static String replaceCharAndElse(String string) {
-        return string.trim().replaceAll("[\\pP\\p{Punct}]", "");
-    }
 }
-
 
 
     

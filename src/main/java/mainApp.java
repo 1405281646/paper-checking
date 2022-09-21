@@ -13,9 +13,6 @@ public class mainApp {
 //        把文件读出为String
         String sourceTxt = TxtUtils.readTxt(sourceTxtPath);
         String compareTxt = TxtUtils.readTxt(compareTxtPath);
-//对String进行处理、
-        sourceTxt = TxtUtils.replaceCharAndElse(sourceTxt);
-        compareTxt = TxtUtils.replaceCharAndElse(compareTxt);
 
 
 //       由字符串得出对应 的 simHash值
